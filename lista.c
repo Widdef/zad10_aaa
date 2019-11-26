@@ -69,13 +69,14 @@ void list_delete_first(list **p)
 	if (*p != NULL)
 	{
 		list *tmp = *p;
+		list *head = *p;
 		while (tmp->next != *p)
 		{
 			tmp = tmp->next;
 		}
-		free(tmp->next);
 		tmp->next = tmp->next->next;
 		(*p) = tmp->next;
+		free(head);
 	}
 }
 
