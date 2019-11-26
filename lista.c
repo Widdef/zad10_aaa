@@ -3,7 +3,7 @@
 
 void list_add_end(list **p, int value)
 {
-	list *el = malloc(sizeof(list));
+	list *el = (list*)malloc(sizeof(list));
 	el->data = value;
 	el->next = NULL;
 
@@ -12,7 +12,7 @@ void list_add_end(list **p, int value)
 	if ((*p) == NULL)
 	{
 		(*p) = el;
-		el->next = &(*el);
+		el->next = el;
 	}
 	else
 	{
